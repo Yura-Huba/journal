@@ -8,10 +8,10 @@ Journal::Journal(ISinkUniquePtr sink, IFormatterUniquePtr formatter, Importance 
 	, minImportance_(minImportance) {
 
 	if (!sink_) {
-		throw std::invalid_argument("Journal: sink не может быть null");
+		throw std::invalid_argument("Journal: sink РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ null");
 	}
 	if (!formatter_) {
-		throw std::invalid_argument("Journal: formatter не может быть null");
+		throw std::invalid_argument("Journal: formatter РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ null");
 	}
 }
 
@@ -19,7 +19,7 @@ void Journal::write(const std::string& message,
 					Importance importance,
 					std::time_t timestamp
 ) {
-	// ”ильтруем сообщениЯ ниже текущего уровнЯ важности.
+	// Р¤РёР»СЊС‚СЂСѓРµРј СЃРѕРѕР±С‰РµРЅРёСЏ РЅРёР¶Рµ С‚РµРєСѓС‰РµРіРѕ СѓСЂРѕРІРЅСЏ РІР°Р¶РЅРѕСЃС‚Рё.
 	if (importance < getMinImportance()) {
 		return;
 	}
